@@ -23,7 +23,7 @@ namespace H264Net
 			throw gcnew System::DllNotFoundException(String::Format("Unable to load WelsDestroySVCEncoder func in '{0}'"));
 		if (CreateEncoder(&enc) != 0)
 			throw gcnew System::Exception("Unable to create the encoder");
-		FrameInfo = new SFrameBSInfo(); // We will need that pointer later on to store frame infos
+		FrameInfo = new SFrameBSInfo();
 		CiscoEncoder = enc;
 	}
 
