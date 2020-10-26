@@ -4,4 +4,22 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="H264NetInvokeLayer\**" />
+    <EmbeddedResource Remove="H264NetInvokeLayer\**" />
+    <None Remove="H264NetInvokeLayer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="H264NetInvokeLayer.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="welsenc.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="welsvp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

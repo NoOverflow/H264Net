@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\H264Net.vcxproj" />
+    <ProjectReference Include="..\H264Net\H264Net.csproj" />
   </ItemGroup>
 
   <ItemGroup>
