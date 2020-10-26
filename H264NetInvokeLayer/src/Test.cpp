@@ -6,7 +6,6 @@ void main(int argc, char** argv)
 {
 	ISVCEncoder* testEncoder = NULL;
 
-	std::cout << "test";
 	if (WelsCreateSVCEncoder(&testEncoder) != 0)
 		std::cout << "Failed to create test encoder";
 
@@ -20,4 +19,6 @@ void main(int argc, char** argv)
 	params.iRCMode = RC_BITRATE_MODE;
 	params.iUsageType = CAMERA_VIDEO_REAL_TIME;
 	InitializeEncoder(testEncoder, &params);
+	UnInitializeEncoder(testEncoder);
+	getchar();
 }
