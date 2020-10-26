@@ -6,7 +6,7 @@ void main(int argc, char** argv)
 {
 	ISVCEncoder* testEncoder = NULL;
 
-	if (WelsCreateSVCEncoder(&testEncoder) != 0)
+	if (CreateEncoder(&testEncoder) != 0)
 		std::cout << "Failed to create test encoder";
 
 	SEncParamBase params;
