@@ -5,15 +5,36 @@
 
 trigger:
 - master
+- develop
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln'
+    platform: 'x64'
+    configuration: 'release'
+    msbuildArchitecture: 'x64'
+    createLogFile: true
+  displayName: 'Build H264Net solution'
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\H264NetTests.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
+    testRunTitle: 'CI Tests'
+    platform: 'x64'
+    configuration: 'release'
+    rerunFailedTests: false
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'XUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    buildPlatform: 'x64'
+    buildConfiguration: 'release'
