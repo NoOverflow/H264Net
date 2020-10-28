@@ -8,10 +8,10 @@ namespace H264Net.Encoder
     public class Encoder
     {
         #region DLL Imports
-        [DllImport("H264NetInvokeLayer.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        [DllImport("H264NetInvokeLayer", CharSet = CharSet.Unicode, SetLastError = true)]
         private static extern int InitializeEncoder(IntPtr encoder, IntPtr pParam);
 
-        [DllImport("H264NetInvokeLayer.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        [DllImport("H264NetInvokeLayer", CharSet = CharSet.Unicode, SetLastError = true)]
         private static extern int CreateEncoder(ref IntPtr encoder);
         #endregion
 
