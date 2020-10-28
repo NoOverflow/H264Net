@@ -22,13 +22,4 @@
     <ProjectReference Include="..\H264Net\H264Net.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="openh264-2.1.1-win32.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="openh264-2.1.1-win64.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

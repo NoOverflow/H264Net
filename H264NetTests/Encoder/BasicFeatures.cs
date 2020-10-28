@@ -13,34 +13,44 @@ namespace H264NetTests
             Encoder encoder = new Encoder();
 
             Assert.NotNull(encoder);
+            encoder.Dispose();
         }
 
         [Fact]
-        public void CreateEncoderFromInvalidDLL()
+        public void SetSourcePictureParameters()
         {
-            //Assert.Throws<DllNotFoundException>(() => new Encoder("thisdlldoesnotexisthopefully.dll"));
+            Encoder encoder = new Encoder();
+            SourcePicture sourcePicture = new SourcePicture();
+
+            sourcePicture.PicWidth = 640;
+            sourcePicture.PicHeight = 480;
+            sourcePicture.ColorFormat = (int)VideoFormats.VideoFormatI420;
+            encoder.SetSourcePictureParameters(sourcePicture);
+            encoder.Dispose();
         }
 
         [Fact]
-        public void SetupEncoder()
+        public void InitializeEncoder()
         {
-            /*
-            Encoder encoder = new Encoder(Shared.CiscoDLLPath);
-            Encoder.EncoderBaseParameters param = new Encoder.EncoderBaseParameters();
+            Encoder encoder = new Encoder();
+            SourcePicture sourcePicture = new SourcePicture();
 
-            param.RCMode = Encoder.RateControlModes.RC_BITRATE_MODE_POST_SKIP;
-            param.UsageType = Encoder.UsageType.CAMERA_VIDEO_REAL_TIME;
-            encoder.Setup(param);
-            encoder.Dispose();*/
-        }
+            sourcePicture.PicWidth = 640;
+            sourcePicture.PicHeight = 480;
+            sourcePicture.ColorFormat = (int)VideoFormats.VideoFormatI420;
+            encoder.SetSourcePictureParameters(sourcePicture);
 
-        [Fact]
-        public void SetupSourceParams()
-        {
-            /*Encoder encoder = new Encoder(Shared.CiscoDLLPath);
+            ParamBase encoderParams = new ParamBase();
 
-            encoder.SetSourcePictureParameters(1920, 1080, Encoder.VideoFormatType.videoFormatI420);
-            encoder.Dispose();*/
+            encoderParams.MaxFrameRate = 60.0F;
+            encoderParams.PicWidth = 640;
+            encoderParams.PicHeight = 480;
+            encoderParams.RateControl = RateControlModes.RC_BITRATE_MODE;
+            encoderParams.TargetBitrate = 5000000;
+            encoderParams.UsageType = UsageType.CAMERA_VIDEO_REAL_TIME;
+
+            encoder.Initialize(encoderParams);
+            encoder.Dispose();
         }
     }
 }
