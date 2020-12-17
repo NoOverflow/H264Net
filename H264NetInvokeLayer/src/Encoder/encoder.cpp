@@ -7,6 +7,11 @@ EXTERN_DLL_EXPORT int CreateEncoder(ISVCEncoder** encoder)
 	return (WelsCreateSVCEncoder(encoder));
 }
 
+EXTERN_DLL_EXPORT void DestroyEncoder(ISVCEncoder *encoder)
+{
+	WelsDestroySVCEncoder(encoder);
+}
+
 EXTERN_DLL_EXPORT int InitializeEncoder(ISVCEncoder *encoder, const SEncParamBase* pParam)
 {
 	int result = encoder->Initialize(pParam);
