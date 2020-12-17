@@ -1,6 +1,0 @@
-message("-- Linking OpenH264")
-set(CISCO_LIBRARY "welsecore.lib")
-add_library(OpenH264 STATIC ${CISCO_LIBRARY})
-set(CISCO_LIBRARY "welsecore.lib")
-target_link_libraries(OpenH264 ${CISCO_LIBRARY})
-set_target_properties(OpenH264 PROPERTIES LINKER_LANGUAGE C)
