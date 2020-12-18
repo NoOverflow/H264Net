@@ -2,7 +2,12 @@
 #ifndef H264NET_ENCODER_H__
 #define H264NET_ENCODER_H__
 
+#if WIN32
 #define EXTERN_DLL_EXPORT extern "C" __declspec(dllexport)
+#elif ARM
+#include <jni.h>
+#define EXTERN_DLL_EXPORT extern "C" JNIEXPORT
+#endif
 
 typedef struct Source_Picture_Layer_S {
     int       iColorFormat;          ///< color space type

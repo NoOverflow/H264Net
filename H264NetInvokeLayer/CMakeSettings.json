@@ -4,13 +4,14 @@
       "name": "x64-Debug",
       "generator": "Ninja",
       "configurationType": "Debug",
-      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "inheritEnvironments": [ "msvc_x64" ],
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
-      "variables": []
+      "variables": [],
+      "cmakeToolchain": ""
     },
     {
       "name": "x86-Debug",
@@ -25,17 +26,18 @@
       "variables": []
     },
     {
-      "name": "x64-Clang-Debug",
+      "name": "ARM64-Clang-Android",
       "generator": "Ninja",
       "configurationType": "Debug",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "",
+      "cmakeCommandArgs": "-DPLATFORM=ANDROID -DCMAKE_CXX_FLAGS=\"-v -D ARM\" -DANDROID_NDK=C:\\Users\\stage\\Downloads\\android-ndk-r21d-windows-x86_64\\android-ndk-r21d -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM='android-16' -DANDROID_TOOLCHAIN=clang++",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "clang_cl_x64" ],
+      "inheritEnvironments": [],
       "intelliSenseMode": "android-clang-arm64",
-      "variables": []
+      "variables": [],
+      "cmakeToolchain": "C:/Users/stage/Downloads/android-ndk-r21d-windows-x86_64/android-ndk-r21d/build/cmake/android.toolchain.cmake"
     }
   ]
 }
