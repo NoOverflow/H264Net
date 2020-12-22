@@ -7,6 +7,8 @@
 #elif ARM
 #include <jni.h>
 #define EXTERN_DLL_EXPORT extern "C" JNIEXPORT
+#elif __linux__
+#define EXTERN_DLL_EXPORT __attribute__((visibility("default")))
 #endif
 
 typedef struct Source_Picture_Layer_S {

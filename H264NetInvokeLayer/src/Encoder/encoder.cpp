@@ -1,5 +1,8 @@
 #include <iostream>
-#include "C:\Users\stage\Downloads\H264Net\H264NetInvokeLayer\include\Cisco\codec_api.h"
+#if __linux__
+#include <string.h>
+#endif
+#include "../../include/Cisco/codec_api.h"
 #include "../../include/encoder.h"
 
 EXTERN_DLL_EXPORT int CreateEncoder(ISVCEncoder** encoder)
