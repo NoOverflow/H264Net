@@ -142,5 +142,5 @@ namespace H264NetExample
             exitMre.WaitOne();
             encoder.Dispose();
         }
-    }
+    }   
 }

@@ -14,6 +14,12 @@
     <None Update="H264NetInvokeLayer.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="libH264NetInvokeLayer.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="libopenh264.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="welsenc.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
