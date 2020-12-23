@@ -40,7 +40,7 @@
       "cmakeToolchain": "C:/Users/stage/Downloads/android-ndk-r21d-windows-x86_64/android-ndk-r21d/build/cmake/android.toolchain.cmake"
     },
     {
-      "name": "WSL-Clang-Debug",
+      "name": "WSL-x64-Clang-Debug",
       "generator": "Ninja",
       "configurationType": "Debug",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
@@ -53,6 +53,21 @@
       "wslPath": "${defaultWSLPath}",
       "addressSanitizerRuntimeFlags": "detect_leaks=0",
       "variables": []
+    },
+    {
+      "name": "WSL-x64-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeExecutable": "cmake",
+      "cmakeCommandArgs": "-DARCH=x64",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "variables": [],
+      "wslPath": "${defaultWSLPath}",
+      "addressSanitizerRuntimeFlags": "detect_leaks=0"
     }
   ]
 }
